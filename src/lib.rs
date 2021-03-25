@@ -109,7 +109,7 @@ pub fn request(opts: RequestOpts) -> Result<Vec<Respone>, String> {
 
     let display = if opts.display.is_none() {
         10
-    } else if 9 >= opts.display.unwrap() && opts.display.unwrap() <= 101 {
+    } else if 9 < opts.display.unwrap() && opts.display.unwrap() < 101 {
         opts.display.unwrap()
     } else {
         return Err("최소 10부터 최대 100까지 가능합니다.".to_string());
@@ -117,7 +117,7 @@ pub fn request(opts: RequestOpts) -> Result<Vec<Respone>, String> {
 
     let start = if opts.start.is_none() {
         1
-    } else if 0 >= opts.start.unwrap() && opts.start.unwrap() <= 1001 {
+    } else if 0 < opts.start.unwrap() && opts.start.unwrap() < 1001 {
         opts.start.unwrap()
     } else {
         return Err("최소 1부터 최대 1000까지 가능합니다.".to_string());
